@@ -750,7 +750,7 @@ export default function App() {
             <div className="hero-card" style={{ flex: 1, minHeight: 280, borderRadius: 2, display: "flex", flexDirection: "column" }}>
               {/* Image */}
               <img
-                src="https://ggm.bynder.com/asset/9e453325-8115-4491-ad1a-17638e092a21/JPG/SMG36E_room_164788.jpg"
+                src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=600&q=80"
                 alt="360 Video Plattform"
                 style={{ width: "100%", height: 180, objectFit: "cover", borderRadius: "2px 2px 0 0", display: "block" }}
               />
