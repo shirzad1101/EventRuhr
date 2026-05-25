@@ -522,7 +522,7 @@ function Modal({ onClose }) {
 function InfoModal360({ onClose }) {
   return (
     <div className="modal-overlay" onClick={(e) => e.target === e.currentTarget && onClose()}>
-      <div className="info-modal-box">
+      <div className="info-modal-box" style={{ maxWidth: "640px" }}>
         <div style={{ padding: "36px 36px 0" }}>
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: 20 }}>
             <div>
@@ -540,6 +540,35 @@ function InfoModal360({ onClose }) {
         </div>
 
         <div style={{ padding: "0 36px 36px" }}>
+          
+          {/* ── VIDEO EINBETTUNG ── */}
+          <div style={{ 
+            position: "relative", 
+            paddingBottom: "56.25%", /* 16:9 Seitenverhältnis */
+            height: 0, 
+            overflow: "hidden", 
+            borderRadius: "4px",
+            background: "#000",
+            marginBottom: "24px",
+            border: `1px solid rgba(200,169,110,0.25)`
+          }}>
+            <iframe
+              style={{
+                position: "absolute",
+                top: 0,
+                left: 0,
+                width: "100%",
+                height: "100%",
+                border: 0
+              }}
+              /* ERSETZE DEN LINK UNTEN MIT DEINEM ECHTEN EMBED-LINK (z.B. von YouTube) */
+              src="https://youtube.com/shorts/UYER0sPTMaA?si=ACUj9jk0j50mtiyD" 
+              title="360 Video Booth Demo"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            />
+          </div>
+
           {/* Key advantage highlight */}
           <div style={{ background: `linear-gradient(135deg, rgba(200,169,110,0.1) 0%, rgba(200,169,110,0.04) 100%)`, border: `1px solid rgba(200,169,110,0.25)`, padding: "20px 22px", marginBottom: 24, borderRadius: 2 }}>
             <div style={{ display: "flex", alignItems: "flex-start", gap: 14 }}>
