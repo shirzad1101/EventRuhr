@@ -355,7 +355,7 @@ function Modal({ onClose }) {
   const [form, setForm] = useState({ datum: "", gaeste: "", ort: "", email: "", details: "" });
   const [loading, setLoading] = useState(false);
 
-const handleSubmit = async () => {
+  const handleSubmit = async () => {
     // 1. Prüfen ob E-Mail ausgefüllt ist
     if (!form.email || !form.datum) {
       alert("Bitte gib zumindest ein Datum und eine E-Mail-Adresse an.");
@@ -414,6 +414,7 @@ const handleSubmit = async () => {
         {!submitted ? (
           <div style={{ padding: "0 36px 36px" }}>
             <div style={{ display: "flex", flexDirection: "column", gap: 20 }}>
+              
               <div>
                 <label className="form-label">Datum des Events</label>
                 <div style={{ position: "relative" }}>
@@ -423,6 +424,7 @@ const handleSubmit = async () => {
                   <Calendar size={15} color={GOLD} style={{ position: "absolute", left: 14, top: "50%", transform: "translateY(-50%)", opacity: 0.7 }} />
                 </div>
               </div>
+              
               <div>
                 <label className="form-label">Ungefähre Gästeanzahl</label>
                 <div style={{ position: "relative" }}>
@@ -439,6 +441,7 @@ const handleSubmit = async () => {
                   <ChevronDown size={14} color="rgba(255,255,255,0.3)" style={{ position: "absolute", right: 14, top: "50%", transform: "translateY(-50%)", pointerEvents: "none" }} />
                 </div>
               </div>
+              
               <div>
                 <label className="form-label">Veranstaltungsort</label>
                 <div style={{ position: "relative" }}>
@@ -448,6 +451,7 @@ const handleSubmit = async () => {
                   <MapPin size={15} color={GOLD} style={{ position: "absolute", left: 14, top: "50%", transform: "translateY(-50%)", opacity: 0.7 }} />
                 </div>
               </div>
+              
               <div>
                 <label className="form-label">E-Mail-Adresse</label>
                 <div style={{ position: "relative" }}>
@@ -457,29 +461,27 @@ const handleSubmit = async () => {
                   <Mail size={15} color={GOLD} style={{ position: "absolute", left: 14, top: "50%", transform: "translateY(-50%)", opacity: 0.7 }} />
                 </div>
               </div>
+              
               <div>
-      <label className="form-label">
-        Weitere Details <span style={{ color: "rgba(255,255,255,0.4)", textTransform: "none", letterSpacing: "normal" }}>(optional)</span>
-      </label>
-      <div style={{ position: "relative" }}>
-        <textarea 
-          placeholder="Z.B. Besondere Wünsche, Ablauf, Location-Besonderheiten..." 
-          className="form-input"
-          value={form.details} 
-          onChange={e => setForm({ ...form, details: e.target.value })}
-          style={{ 
-            minHeight: "90px", 
-            resize: "vertical", 
-            paddingLeft: "16px",
-            lineHeight: "1.5"
-          }} 
-        />
-      </div>
-    </div>
-    {/* BIS HIER */}
+                <label className="form-label">
+                  Weitere Details <span style={{ color: "rgba(255,255,255,0.4)", textTransform: "none", letterSpacing: "normal" }}>(optional)</span>
+                </label>
+                <div style={{ position: "relative" }}>
+                  <textarea 
+                    placeholder="Z.B. Besondere Wünsche, Ablauf, Location-Besonderheiten..." 
+                    className="form-input"
+                    value={form.details} 
+                    onChange={e => setForm({ ...form, details: e.target.value })}
+                    style={{ 
+                      minHeight: "90px", 
+                      resize: "vertical", 
+                      paddingLeft: "16px",
+                      lineHeight: "1.5"
+                    }} 
+                  />
+                </div>
+              </div>
 
-  {/* Das hier war deine ursprüngliche Zeile 460 */}
-  </div>
             </div>
 
             <button className="cta-btn" onClick={handleSubmit} disabled={loading}
