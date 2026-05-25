@@ -797,7 +797,7 @@ export default function App() {
               <img
                 src="https://ggm.bynder.com/asset/9e453325-8115-4491-ad1a-17638e092a21/JPG/SMG36E_room_164788.jpg"
                 alt="Slush Eis Maschine"
-                style={{ width: "100%", height: 180, objectFit: "cover", borderRadius: "2px 2px 0 0", display: "block" }}
+                style={{ width: "50%", height: 100, objectFit: "cover", borderRadius: "2px 2px 0 0", display: "block" }}
               />
               <div style={{ flex: 1, padding: 32, display: "flex", flexDirection: "column", justifyContent: "space-between" }}>
                 <div style={{ position: "relative", zIndex: 1 }}>
