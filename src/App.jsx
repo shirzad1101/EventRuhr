@@ -562,7 +562,7 @@ function InfoModal360({ onClose }) {
                 border: 0
               }}
               /* ERSETZE DEN LINK UNTEN MIT DEINEM ECHTEN EMBED-LINK (z.B. von YouTube) */
-              src="https://youtube.com/shorts/UYER0sPTMaA?si=ACUj9jk0j50mtiyD" 
+              src="https://youtube-nocookie.com/shorts/UYER0sPTMaA?si=ACUj9jk0j50mtiyD" 
               title="360 Video Booth Demo"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen
