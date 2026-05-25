@@ -355,9 +355,40 @@ function Modal({ onClose }) {
   const [form, setForm] = useState({ datum: "", gaeste: "", ort: "", email: "" });
   const [loading, setLoading] = useState(false);
 
-  const handleSubmit = () => {
+const handleSubmit = async () => {
+    // 1. Prüfen ob E-Mail ausgefüllt ist
+    if (!form.email || !form.datum) {
+      alert("Bitte gib zumindest ein Datum und eine E-Mail-Adresse an.");
+      return;
+    }
+    
     setLoading(true);
-    setTimeout(() => { setLoading(false); setSubmitted(true); }, 1200);
+    
+    try {
+      // 2. Daten an deine E-Mail senden
+      await fetch("https://formspree.io/f/mvzywpeo", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          Datum: form.datum,
+          Gaesteanzahl: form.gaeste,
+          Ort: form.ort,
+          Email: form.email,
+          Service: "EventRuhr Anfrage"
+        }),
+      });
+      
+      // 3. Erfolgsmeldung anzeigen
+      setLoading(false);
+      setSubmitted(true);
+      
+    } catch (error) {
+      setLoading(false);
+      alert("Es gab ein Problem. Bitte versuche es später noch einmal.");
+    }
   };
 
   return (
