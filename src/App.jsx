@@ -490,7 +490,7 @@ function Modal({ onClose }) {
             </button>
 
             <p style={{ textAlign: "center", fontSize: 11, color: "rgba(255,255,255,0.25)", marginTop: 14, fontFamily: "'Outfit', sans-serif", letterSpacing: "0.05em" }}>
-              Kostenlos & unverbindlich · Antwort innerhalb von 12h
+              Kostenlos & unverbindlich · Antwort innerhalb von 6h
             </p>
           </div>
         ) : (
@@ -503,7 +503,7 @@ function Modal({ onClose }) {
               <span style={{ color: GOLD }}>deine Anfrage!</span>
             </h3>
             <p style={{ fontFamily: "'Outfit', sans-serif", fontSize: 14, color: "rgba(255,255,255,0.55)", lineHeight: 1.75, maxWidth: 380, margin: "0 auto 28px" }}>
-              Wir verzeichnen aktuell eine extrem hohe Nachfrage für die kommende Hochzeitssaison. Wir prüfen unsere Kapazitäten für dein Datum und melden uns <strong style={{ color: "rgba(255,255,255,0.8)", fontWeight: 500 }}>innerhalb von 12 Stunden</strong> bei dir.
+              Wir verzeichnen aktuell eine extrem hohe Nachfrage für die kommende Hochzeitssaison. Wir prüfen unsere Kapazitäten für dein Datum und melden uns <strong style={{ color: "rgba(255,255,255,0.8)", fontWeight: 500 }}>innerhalb von 6 Stunden</strong> bei dir.
             </p>
             <div style={{ background: "rgba(200,169,110,0.06)", border: "1px solid rgba(200,169,110,0.15)", padding: "14px 20px", marginBottom: 24 }}>
               <p style={{ fontFamily: "'Outfit', sans-serif", fontSize: 12, color: "rgba(200,169,110,0.8)", letterSpacing: "0.08em", textTransform: "uppercase" }}>
@@ -895,7 +895,7 @@ export default function App() {
 
           {/* Stats row */}
           <div style={{ display: "flex", gap: 40, marginTop: 40, flexWrap: "wrap", animation: "fadeInUp 0.7s ease 0.6s both" }}>
-            {[["150+", "Events begleitet"], ["100%", "Kundenzufriedenheit"], ["12h", "Antwortzeit"]].map(([num, label]) => (
+            {[["150+", "Events begleitet"], ["100%", "Kundenzufriedenheit"], ["6h", "Antwortzeit"]].map(([num, label]) => (
               <div key={label} className="stat-card">
                 <p className="font-display" style={{ fontSize: 28, fontWeight: 400, color: GOLD, lineHeight: 1 }}>{num}</p>
                 <p style={{ fontSize: 12, color: "rgba(255,255,255,0.35)", marginTop: 4, letterSpacing: "0.06em", fontFamily: "'Outfit', sans-serif" }}>{label}</p>
@@ -1050,7 +1050,7 @@ export default function App() {
           <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
             <Clock size={14} color="rgba(255,255,255,0.3)" />
             <span style={{ fontSize: 12, color: "rgba(255,255,255,0.3)", fontFamily: "'Outfit', sans-serif", letterSpacing: "0.05em" }}>
-              Antwort innerhalb von 12 Stunden
+              Antwort innerhalb von 6 Stunden
             </span>
           </div>
         </div>
