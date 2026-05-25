@@ -35,7 +35,7 @@ export default function Gallery() {
         {/* VIDEO 1 - MIT .mp4 ENDUNG */}
         <div style={{ borderRadius: "4px", overflow: "hidden", border: "1px solid rgba(200,169,110,0.2)", position: "relative", paddingBottom: "177.78%", height: 0 }}>
           <video 
-            src="/video1.mp4" 
+            src="/video1" 
             autoPlay 
             muted 
             loop 
@@ -47,7 +47,7 @@ export default function Gallery() {
         {/* VIDEO 2 - MIT .mp4 ENDUNG */}
         <div style={{ borderRadius: "4px", overflow: "hidden", border: "1px solid rgba(200,169,110,0.2)", position: "relative", paddingBottom: "177.78%", height: 0 }}>
           <video 
-            src="/video2.mp4" 
+            src="/video2" 
             autoPlay 
             muted 
             loop 
