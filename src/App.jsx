@@ -352,13 +352,13 @@ function StarRating() {
 /* ── BOOKING MODAL ── */
 function Modal({ onClose }) {
   const [submitted, setSubmitted] = useState(false);
-  const [form, setForm] = useState({ datum: "", gaeste: "", ort: "", email: "", details: "" });
+  const [form, setForm] = useState({ datum: "", gaeste: "", ort: "", email: "", equipment: "", details: "" });
   const [loading, setLoading] = useState(false);
 
   const handleSubmit = async () => {
     // 1. Strenge Prüfung: Alle Felder außer 'details' müssen ausgefüllt sein
-    if (!form.datum || !form.gaeste || !form.ort || !form.email) {
-      alert("Bitte fülle alle Pflichtfelder (Datum, Gästeanzahl, Ort und E-Mail-Adresse) aus, damit wir deine Anfrage prüfen können.");
+    if (!form.datum || !form.gaeste || !form.ort || !form.email || !form.equipment) {
+      alert("Bitte fülle alle Pflichtfelder (Datum, Gästeanzahl, Ort, Equipment und E-Mail-Adresse) aus, damit wir deine Anfrage prüfen können.");
       return;
     }
     
@@ -377,6 +377,7 @@ function Modal({ onClose }) {
           Gaesteanzahl: form.gaeste,
           Ort: form.ort,
           Email: form.email,
+          Equipment: form.equipment,
           Details: form.details,
           Service: "EventRuhr Anfrage"
         }),
@@ -398,10 +399,10 @@ function Modal({ onClose }) {
         <div style={{ padding: "36px 36px 0" }}>
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: 28 }}>
             <div>
-              <p className="ticker-line" style={{ marginBottom: 8 }}>Verfügbarkeit prüfen</p>
+              <p className="ticker-line" style={{ marginBottom: 8 }}>Verfügbarkeit & Angebot prüfen</p>
               <h2 className="font-display" style={{ fontSize: 28, fontWeight: 300, color: "#fff", lineHeight: 1.2 }}>
                 Dein Event.<br />
-                <span style={{ color: GOLD }}>Dein Datum.</span>
+                <span style={{ color: GOLD }}>Dein Angebot.</span>
               </h2>
             </div>
             <button onClick={onClose} style={{ background: "none", border: "none", cursor: "pointer", color: "rgba(255,255,255,0.4)", padding: 4, marginTop: -4 }}>
@@ -445,10 +446,26 @@ function Modal({ onClose }) {
               <div>
                 <label className="form-label">Veranstaltungsort</label>
                 <div style={{ position: "relative" }}>
-                  <input type="text" placeholder="z.B. Essen, Dortmund, Bochum …" className="form-input"
+                  <input type="text" placeholder="z.B. Essen, Düsseldorf, Bochum …" className="form-input"
                     value={form.ort} onChange={e => setForm({ ...form, ort: e.target.value })}
                     style={{ paddingLeft: 44 }} />
                   <MapPin size={15} color={GOLD} style={{ position: "absolute", left: 14, top: "50%", transform: "translateY(-50%)", opacity: 0.7 }} />
+                </div>
+              </div>
+
+              <div>
+                <label className="form-label">Gewünschtes Equipment</label>
+                <div style={{ position: "relative" }}>
+                  <select className="form-input" value={form.equipment}
+                    onChange={e => setForm({ ...form, equipment: e.target.value })}
+                    style={{ paddingLeft: 44, appearance: "none", cursor: "pointer" }}>
+                    <option value="" style={{ background: DARK2 }}>Bitte wählen</option>
+                    <option value="360-plattform" style={{ background: DARK2 }}>Nur 360° Video Plattform</option>
+                    <option value="slush-eis" style={{ background: DARK2 }}>Nur Slush-Eis Maschine</option>
+                    <option value="kombi-paket" style={{ background: DARK2 }}>Kombi-Paket (Beides - Preisvorteil)</option>
+                  </select>
+                  <Sparkles size={15} color={GOLD} style={{ position: "absolute", left: 14, top: "50%", transform: "translateY(-50%)", opacity: 0.7 }} />
+                  <ChevronDown size={14} color="rgba(255,255,255,0.3)" style={{ position: "absolute", right: 14, top: "50%", transform: "translateY(-50%)", pointerEvents: "none" }} />
                 </div>
               </div>
               
@@ -486,7 +503,7 @@ function Modal({ onClose }) {
 
             <button className="cta-btn" onClick={handleSubmit} disabled={loading}
               style={{ width: "100%", marginTop: 28, opacity: loading ? 0.7 : 1 }}>
-              {loading ? "Wird geprüft …" : "Kostenlos Verfügbarkeit anfragen"}
+              {loading ? "Wird geprüft …" : "Jetzt Angebot anfordern"}
             </button>
 
             <p style={{ textAlign: "center", fontSize: 11, color: "rgba(255,255,255,0.25)", marginTop: 14, fontFamily: "'Outfit', sans-serif", letterSpacing: "0.05em" }}>
@@ -503,7 +520,7 @@ function Modal({ onClose }) {
               <span style={{ color: GOLD }}>deine Anfrage!</span>
             </h3>
             <p style={{ fontFamily: "'Outfit', sans-serif", fontSize: 14, color: "rgba(255,255,255,0.55)", lineHeight: 1.75, maxWidth: 380, margin: "0 auto 28px" }}>
-              Wir verzeichnen aktuell eine extrem hohe Nachfrage für die kommende Hochzeitssaison. Wir prüfen unsere Kapazitäten für dein Datum und melden uns <strong style={{ color: "rgba(255,255,255,0.8)", fontWeight: 500 }}>innerhalb von 6 Stunden</strong> bei dir.
+              Wir verzeichnen aktuell eine extrem hohe Nachfrage für die kommende Hochzeitssaison. Wir prüfen unsere Kapazitäten für dein Datum und melden uns <strong style={{ color: "rgba(255,255,255,0.8)", fontWeight: 500 }}>innerhalb von 6 Stunden</strong> mit deinem individuellen Angebot.
             </p>
             <div style={{ background: "rgba(200,169,110,0.06)", border: "1px solid rgba(200,169,110,0.15)", padding: "14px 20px", marginBottom: 24 }}>
               <p style={{ fontFamily: "'Outfit', sans-serif", fontSize: 12, color: "rgba(200,169,110,0.8)", letterSpacing: "0.08em", textTransform: "uppercase" }}>
@@ -819,13 +836,13 @@ export default function App() {
           </h1>
 
           <p style={{ fontSize: 16, color: "rgba(255,255,255,0.5)", lineHeight: 1.7, maxWidth: 480, marginBottom: 40, animation: "fadeInUp 0.7s ease 0.3s both", fontWeight: 300 }}>
-            Premium 360° Video Booth & Frozen Cocktail Bar für Hochzeiten und Groß-Events im Ruhrgebiet.
+            Premium 360° Video Booth & Frozen Cocktail Bar für Hochzeiten und Groß-Events im Ruhrgebiet & Raum Düsseldorf.
           </p>
 
           {/* ── Hero CTA: nur ein Button (kein "Mehr erfahren") ── */}
           <div style={{ display: "flex", gap: 16, flexWrap: "wrap", animation: "fadeInUp 0.7s ease 0.4s both", marginBottom: 60 }}>
             <button className="cta-btn" onClick={openBooking}>
-              Jetzt Wunschdatum prüfen
+              Jetzt Angebot anfordern
             </button>
           </div>
 
@@ -858,10 +875,14 @@ export default function App() {
                       </span>
                     ))}
                   </div>
+                  
+                  {/* ANGEPASSTE PREIS-ANZEIGE FÜR 360° PLATFORM */}
                   <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 16 }}>
-                    <div className="divider-gold" style={{ width: 20, margin: 0 }} />
+                    <span style={{ fontSize: 14, fontWeight: 500, color: GOLD, fontFamily: "'Outfit', sans-serif" }}>Miete ab 249,- €</span>
+                    <div className="divider-gold" style={{ width: 12, margin: 0 }} />
                     <span style={{ fontSize: 12, color: "rgba(255,255,255,0.35)", fontFamily: "'Outfit', sans-serif", letterSpacing: "0.06em" }}>Inkl. Operator & Setup</span>
                   </div>
+
                   <button
                     onClick={openInfo360}
                     style={{ background: "none", border: "none", cursor: "pointer", display: "flex", alignItems: "center", gap: 6, padding: 0 }}
@@ -903,10 +924,14 @@ export default function App() {
                       </span>
                     ))}
                   </div>
+
+                  {/* ANGEPASSTE PREIS-ANZEIGE FÜR SLUSH-EIS */}
                   <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 16 }}>
-                    <div className="divider-gold" style={{ width: 20, margin: 0 }} />
+                    <span style={{ fontSize: 14, fontWeight: 500, color: GOLD, fontFamily: "'Outfit', sans-serif" }}>Miete ab 99,- €</span>
+                    <div className="divider-gold" style={{ width: 12, margin: 0 }} />
                     <span style={{ fontSize: 12, color: "rgba(255,255,255,0.35)", fontFamily: "'Outfit', sans-serif", letterSpacing: "0.06em" }}>Inkl. Lieferung & Abbau</span>
                   </div>
+
                   <button
                     onClick={openInfoSlush}
                     style={{ background: "none", border: "none", cursor: "pointer", display: "flex", alignItems: "center", gap: 6, padding: 0 }}
@@ -1028,7 +1053,7 @@ export default function App() {
               </p>
             </div>
             <button className="cta-btn" style={{ marginTop: 28, width: "100%", fontSize: 12 }} onClick={openBooking}>
-              Jetzt Preis anfragen
+              Jetzt Angebot anfordern
             </button>
           </div>
         </div>
@@ -1045,7 +1070,7 @@ export default function App() {
             {[
               { name: "Lena & Marco K.", event: "Hochzeit · Essen", text: "Die 360°-Plattform war das absolute Highlight unserer Hochzeit. Alle Gäste haben noch Tage später davon gesprochen." },
               { name: "TechCorp GmbH", event: "Firmenfeier · Dortmund", text: "Professionelle Abwicklung von Anfang bis Ende. Die Slush-Bar war ein riesiger Hit bei unserem Team-Event mit 300 Personen." },
-              { name: "Ali R.", event: "Hochzeit · Bochum", text: "Das war das absolute Highlight für die kleinen Kinder auf der Hochzeit! Die Slush Eis Maschine kam sensationell gut an, wir haben es geliebt." },
+              { name: "Ali R.", event: "Hochzeit · Düsseldorf", text: "Das war das absolute Highlight für die kleinen Kinder auf der Hochzeit! Die Slush Eis Maschine kam sensationell gut an, wir haben es geliebt." },
             ].map(({ name, event, text }) => (
               <div key={name} style={{ background: DARK3, border: "1px solid rgba(255,255,255,0.05)", borderRadius: 2, padding: "28px 28px 24px" }}>
                 <StarRating />
@@ -1067,14 +1092,14 @@ export default function App() {
         <p className="ticker-line" style={{ marginBottom: 20 }}>Bereit für dein Event?</p>
         <h2 className="font-display" style={{ fontSize: "clamp(34px, 5vw, 58px)", fontWeight: 300, color: "#fff", lineHeight: 1.1, marginBottom: 16 }}>
           Sichere dir jetzt<br />
-          <span style={{ color: GOLD }}>deinen Wunschtermin.</span>
+          <span style={{ color: GOLD }}>dein individuelles Angebot.</span>
         </h2>
         <p style={{ fontSize: 15, color: "rgba(255,255,255,0.4)", marginBottom: 36, fontWeight: 300, lineHeight: 1.6 }}>
           Hochzeiten, Firmenfeiern, Geburtstage — wir sind dabei.
         </p>
         <div style={{ display: "flex", gap: 14, justifyContent: "center", flexWrap: "wrap", alignItems: "center" }}>
           <button className="cta-btn" onClick={openBooking}>
-            Jetzt Wunschdatum prüfen
+            Jetzt Angebot anfordern
           </button>
           <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
             <Clock size={14} color="rgba(255,255,255,0.3)" />
@@ -1098,11 +1123,11 @@ export default function App() {
         <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
           <MapPin size={13} color={GOLD + "80"} />
           <span style={{ fontSize: 12, color: "rgba(255,255,255,0.25)", fontFamily: "'Outfit', sans-serif", letterSpacing: "0.06em" }}>
-            Ruhrgebiet, Deutschland
+            Ruhrgebiet & Raum Düsseldorf, Deutschland
           </span>
         </div>
         <p style={{ fontSize: 11, color: "rgba(255,255,255,0.15)", fontFamily: "'Outfit', sans-serif", letterSpacing: "0.06em" }}>
-          © 2025 EventRuhr · Impressum · Datenschutz
+          © 2026 EventRuhr · Impressum · Datenschutz
         </p>
       </footer>
 
