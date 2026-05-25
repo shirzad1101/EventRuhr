@@ -927,7 +927,7 @@ export default function App() {
 
                   {/* ANGEPASSTE PREIS-ANZEIGE FÜR SLUSH-EIS */}
                   <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 16 }}>
-                    <span style={{ fontSize: 14, fontWeight: 500, color: GOLD, fontFamily: "'Outfit', sans-serif" }}>Miete ab 99,- €</span>
+                    <span style={{ fontSize: 14, fontWeight: 500, color: GOLD, fontFamily: "'Outfit', sans-serif" }}>Miete ab 149,- €</span>
                     <div className="divider-gold" style={{ width: 12, margin: 0 }} />
                     <span style={{ fontSize: 12, color: "rgba(255,255,255,0.35)", fontFamily: "'Outfit', sans-serif", letterSpacing: "0.06em" }}>Inkl. Lieferung & Abbau</span>
                   </div>
