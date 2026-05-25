@@ -559,10 +559,10 @@ function InfoModal360({ onClose }) {
 
         <div style={{ padding: "0 36px 36px" }}>
           
-          {/* ── VIDEO EINBETTUNG ── */}
+          {/* ── NEUE LOKALE VIDEO EINBETTUNG (STATT IFRAME) ── */}
           <div style={{ 
             position: "relative", 
-            paddingBottom: "56.25%", /* 16:9 Seitenverhältnis */
+            paddingBottom: "56.25%", /* 16:9 Querformat. Wenn dein Demovideo hochkant ist, ändere das zu "177.78%" */
             height: 0, 
             overflow: "hidden", 
             borderRadius: "4px",
@@ -570,19 +570,13 @@ function InfoModal360({ onClose }) {
             marginBottom: "24px",
             border: `1px solid rgba(200,169,110,0.25)`
           }}>
-            <iframe
-              style={{
-                position: "absolute",
-                top: 0,
-                left: 0,
-                width: "100%",
-                height: "100%",
-                border: 0
-              }}
-              src="https://www.youtube-nocookie.com/embed/https://www.youtube.com/watch?v=SXhlfWOl0_Y?autoplay=1&mute=1&rel=0"
-              title="360 Video Booth Demo"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
+            <video 
+              src="/video3.mp4" 
+              autoPlay 
+              muted 
+              loop 
+              playsInline
+              style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", objectFit: "cover", display: "block" }}
             />
           </div>
 
