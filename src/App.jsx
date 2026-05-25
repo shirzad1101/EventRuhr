@@ -752,7 +752,7 @@ export default function App() {
               <img
                 src="https://imgs.search.brave.com/hZmEKHjRQC5IKrWS9yIOsGw371bikCCS7_kP9EudvOw/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9wcm9m/aWxtLmFlL3dwLWNv/bnRlbnQvdXBsb2Fk/cy8yMDIzLzAxL3Jz/d182MDBoXzYwMGNn/X3RydWUud2VicA"
                 alt="360 Video Plattform"
-                style={{ width: "100%", height: 180, objectFit: "cover", borderRadius: "2px 2px 0 0", display: "block" }}
+                style={{ width: "100%", height: 350, objectFit: "cover", borderRadius: "2px 2px 0 0", display: "block" }}
               />
               <div style={{ flex: 1, padding: 32, display: "flex", flexDirection: "column", justifyContent: "space-between" }}>
                 <div style={{ position: "relative", zIndex: 1 }}>
@@ -797,7 +797,7 @@ export default function App() {
               <img
                 src="https://ggm.bynder.com/asset/9e453325-8115-4491-ad1a-17638e092a21/JPG/SMG36E_room_164788.jpg"
                 alt="Slush Eis Maschine"
-                style={{ width: "50%", height: 100, objectFit: "cover", borderRadius: "2px 2px 0 0", display: "block" }}
+                style={{ width: "100%", height: 250, objectFit: "cover", borderRadius: "2px 2px 0 0", display: "block" }}
               />
               <div style={{ flex: 1, padding: 32, display: "flex", flexDirection: "column", justifyContent: "space-between" }}>
                 <div style={{ position: "relative", zIndex: 1 }}>
