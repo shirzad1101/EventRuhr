@@ -22,7 +22,7 @@ export default function Gallery() {
         Eindrücke und Highlights der EventRuhr Deluxe Plattformen in Aktion.
       </p>
 
-      {/* ── VIDEO GRID ── */}
+      {/* ── VIDEO GRID (Videos nebeneinander) ── */}
       <div style={{ 
         display: "grid", 
         gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", 
@@ -32,10 +32,10 @@ export default function Gallery() {
         margin: "0 auto" 
       }}>
         
-        {/* VIDEO 1 */}
+        {/* VIDEO 1 - MIT .mp4 ENDUNG */}
         <div style={{ borderRadius: "4px", overflow: "hidden", border: "1px solid rgba(200,169,110,0.2)", position: "relative", paddingBottom: "177.78%", height: 0 }}>
           <video 
-            src="/video1" 
+            src="/video1.mp4" 
             autoPlay 
             muted 
             loop 
@@ -44,10 +44,10 @@ export default function Gallery() {
           />
         </div>
 
-        {/* VIDEO 2 */}
+        {/* VIDEO 2 - MIT .mp4 ENDUNG */}
         <div style={{ borderRadius: "4px", overflow: "hidden", border: "1px solid rgba(200,169,110,0.2)", position: "relative", paddingBottom: "177.78%", height: 0 }}>
           <video 
-            src="/video2" 
+            src="/video2.mp4" 
             autoPlay 
             muted 
             loop 
