@@ -352,7 +352,7 @@ function StarRating() {
 /* ── BOOKING MODAL ── */
 function Modal({ onClose }) {
   const [submitted, setSubmitted] = useState(false);
-  const [form, setForm] = useState({ datum: "", gaeste: "", ort: "", email: "" });
+  const [form, setForm] = useState({ datum: "", gaeste: "", ort: "", email: "", details: "" });
   const [loading, setLoading] = useState(false);
 
 const handleSubmit = async () => {
@@ -377,6 +377,7 @@ const handleSubmit = async () => {
           Gaesteanzahl: form.gaeste,
           Ort: form.ort,
           Email: form.email,
+          Details: form.details,
           Service: "EventRuhr Anfrage"
         }),
       });
@@ -456,6 +457,29 @@ const handleSubmit = async () => {
                   <Mail size={15} color={GOLD} style={{ position: "absolute", left: 14, top: "50%", transform: "translateY(-50%)", opacity: 0.7 }} />
                 </div>
               </div>
+              <div>
+      <label className="form-label">
+        Weitere Details <span style={{ color: "rgba(255,255,255,0.4)", textTransform: "none", letterSpacing: "normal" }}>(optional)</span>
+      </label>
+      <div style={{ position: "relative" }}>
+        <textarea 
+          placeholder="Z.B. Besondere Wünsche, Ablauf, Location-Besonderheiten..." 
+          className="form-input"
+          value={form.details} 
+          onChange={e => setForm({ ...form, details: e.target.value })}
+          style={{ 
+            minHeight: "90px", 
+            resize: "vertical", 
+            paddingLeft: "16px",
+            lineHeight: "1.5"
+          }} 
+        />
+      </div>
+    </div>
+    {/* BIS HIER */}
+
+  {/* Das hier war deine ursprüngliche Zeile 460 */}
+  </div>
             </div>
 
             <button className="cta-btn" onClick={handleSubmit} disabled={loading}
