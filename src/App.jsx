@@ -750,7 +750,7 @@ export default function App() {
             <div className="hero-card" style={{ flex: 1, minHeight: 280, borderRadius: 2, display: "flex", flexDirection: "column" }}>
               {/* Image */}
               <img
-                src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=600&q=80"
+                src="https://imgs.search.brave.com/hZmEKHjRQC5IKrWS9yIOsGw371bikCCS7_kP9EudvOw/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9wcm9m/aWxtLmFlL3dwLWNv/bnRlbnQvdXBsb2Fk/cy8yMDIzLzAxL3Jz/d182MDBoXzYwMGNn/X3RydWUud2VicA"
                 alt="360 Video Plattform"
                 style={{ width: "100%", height: 180, objectFit: "cover", borderRadius: "2px 2px 0 0", display: "block" }}
               />
@@ -795,7 +795,7 @@ export default function App() {
             <div className="hero-card" style={{ flex: 1, minHeight: 280, borderRadius: 2, display: "flex", flexDirection: "column", background: `linear-gradient(145deg, ${DARK3} 0%, ${DARK2} 100%)` }}>
               {/* Image */}
               <img
-                src="https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?auto=format&fit=crop&w=600&q=80"
+                src="https://ggm.bynder.com/asset/9e453325-8115-4491-ad1a-17638e092a21/JPG/SMG36E_room_164788.jpg"
                 alt="Slush Eis Maschine"
                 style={{ width: "100%", height: 180, objectFit: "cover", borderRadius: "2px 2px 0 0", display: "block" }}
               />
