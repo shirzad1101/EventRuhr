@@ -356,16 +356,16 @@ function Modal({ onClose }) {
   const [loading, setLoading] = useState(false);
 
   const handleSubmit = async () => {
-    // 1. Prüfen ob E-Mail ausgefüllt ist
-    if (!form.email || !form.datum) {
-      alert("Bitte gib zumindest ein Datum und eine E-Mail-Adresse an.");
+    // 1. Strenge Prüfung: Alle Felder außer 'details' müssen ausgefüllt sein
+    if (!form.datum || !form.gaeste || !form.ort || !form.email) {
+      alert("Bitte fülle alle Pflichtfelder (Datum, Gästeanzahl, Ort und E-Mail-Adresse) aus, damit wir deine Anfrage prüfen können.");
       return;
     }
     
     setLoading(true);
     
     try {
-      // 2. Daten an deine E-Mail senden
+      // 2. Daten an Formspree senden
       await fetch("https://formspree.io/f/mvzywpeo", {
         method: "POST",
         headers: {
