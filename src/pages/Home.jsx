@@ -739,21 +739,47 @@ export default function Home() {
   return (
     <div className="font-body" style={{ background: DARK, minHeight: "100vh", color: "#fff" }}>
 
-      {/* ── URGENCY BANNER ── */}
-      <div className="urgency-banner">
-        <div className="urgency-banner-dot" />
-        <span>
-          <strong style={{ color: GOLD_LIGHT, fontWeight: 600 }}>Wichtiger Hinweis:</strong>{" "}
-          Aufgrund der extrem hohen Nachfrage für die Sommer-Saison können Termine aktuell nur mit mindestens{" "}
-          <strong style={{ color: "#fff", fontWeight: 600 }}>2 Wochen Vorlaufzeit</strong> gebucht werden.
-        </span>
-        <div className="urgency-banner-dot" />
-      </div>
+{/* ── URGENCY BANNER (MIT SCHLIESSEN-FUNKTION) ── */}
+      {showBanner && (
+        <div className="urgency-banner" style={{ position: "relative", paddingRight: "40px" }}>
+          <div className="urgency-banner-dot" />
+          <span>
+            <strong style={{ color: GOLD_LIGHT, fontWeight: 600 }}>Hinweis: </strong>
+            <span className="hide-mobile">Aufgrund hoher Nachfrage bitten wir um </span>
+            <strong style={{ color: "#fff", fontWeight: 600 }}>mind. 2 Wochen Vorlaufzeit</strong>
+          </span>
+          <div className="urgency-banner-dot" />
+          
+          {/* Das X zum Schließen */}
+          <button 
+            onClick={() => setShowBanner(false)} 
+            style={{
+              position: "absolute",
+              right: "15px",
+              top: "50%",
+              transform: "translateY(-50%)",
+              background: "none",
+              border: "none",
+              color: "rgba(255,255,255,0.6)",
+              cursor: "pointer",
+              fontSize: "16px",
+              fontWeight: "300",
+              fontFamily: "sans-serif",
+              padding: "5px",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center"
+            }}
+          >
+            ✕
+          </button>
+        </div>
+      )}
 
       {/* ── NAV ── */}
       <nav style={{
         position: "fixed",
-        top: BANNER_H,
+        top: showBanner ? 42 : 0, /* Hier rutscht die Nav automatisch hoch, wenn das Banner weg ist! */
         left: 0,
         right: 0,
         zIndex: 100,
