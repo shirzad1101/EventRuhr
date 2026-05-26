@@ -352,6 +352,7 @@ function StarRating() {
 
 /* ── BOOKING MODAL ── */
 function Modal({ onClose }) {
+  const navigate = useNavigate(); // NEU: Ermöglicht die Weiterleitung zur Danke-Seite
   const [submitted, setSubmitted] = useState(false);
   const [form, setForm] = useState({ datum: "", gaeste: "", ort: "", email: "", equipment: "", details: "" });
   const [loading, setLoading] = useState(false);
@@ -384,16 +385,16 @@ function Modal({ onClose }) {
         }),
       });
       
-      // 3. Erfolgsmeldung anzeigen
+      // 3. Erfolgsmeldung verarbeiten & WEITERLEITEN ZUR DANKE-SEITE
       setLoading(false);
-      setSubmitted(true);
+      onClose();          // Schließt das Pop-up-Fenster automatisch
+      navigate("/danke"); // Leitet den Kunden direkt weiter zu eventruhr-deluxe.de/danke
       
     } catch (error) {
       setLoading(false);
       alert("Es gab ein Problem. Bitte versuche es später noch einmal.");
     }
   };
-
   return (
     <div className="modal-overlay" onClick={(e) => e.target === e.currentTarget && onClose()}>
       <div className="modal-box">
