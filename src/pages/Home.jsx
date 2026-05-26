@@ -744,9 +744,9 @@ export default function Home() {
         <div className="urgency-banner" style={{ position: "relative", paddingRight: "40px" }}>
           <div className="urgency-banner-dot" />
           <span>
-            <strong style={{ color: GOLD_LIGHT, fontWeight: 600 }}>Hinweis: </strong>
-            <span className="hide-mobile">Aufgrund hoher Nachfrage bitten wir um </span>
-            <strong style={{ color: "#fff", fontWeight: 600 }}>mind. 2 Wochen Vorlaufzeit</strong>
+            <strong style={{ color: GOLD_LIGHT, fontWeight: 600 }}>Wichtiger Hinweis:</strong>{" "}
+          Aufgrund der extrem hohen Nachfrage für die Sommer-Saison können Termine aktuell nur mit mindestens{" "}
+          <strong style={{ color: "#fff", fontWeight: 600 }}>2 Wochen Vorlaufzeit</strong> gebucht werden.
           </span>
           <div className="urgency-banner-dot" />
           
