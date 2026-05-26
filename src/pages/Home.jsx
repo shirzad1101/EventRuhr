@@ -697,6 +697,7 @@ function InfoModalSlush({ onClose }) {
 
 /* ── MAIN APP ── */
 export default function Home() {
+  const [showBanner, setShowBanner] = React.useState(true);
   const [modalOpen, setModalOpen] = useState(false);
   const [infoModal, setInfoModal] = useState(null); // "360" | "slush" | null
   const [navOpen, setNavOpen] = useState(false);
