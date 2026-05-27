@@ -352,15 +352,16 @@ function StarRating() {
 
 /* ── BOOKING MODAL ── */
 function Modal({ onClose }) {
-  const navigate = useNavigate(); // NEU: Ermöglicht die Weiterleitung zur Danke-Seite
+  const navigate = useNavigate();
   const [submitted, setSubmitted] = useState(false);
-  const [form, setForm] = useState({ datum: "", gaeste: "", ort: "", email: "", equipment: "", details: "" });
+  // NEU: datenschutz als Boolean im State hinzugefügt
+  const [form, setForm] = useState({ datum: "", gaeste: "", ort: "", email: "", equipment: "", details: "", datenschutz: false });
   const [loading, setLoading] = useState(false);
 
   const handleSubmit = async () => {
-    // 1. Strenge Prüfung: Alle Felder außer 'details' müssen ausgefüllt sein
-    if (!form.datum || !form.gaeste || !form.ort || !form.email || !form.equipment) {
-      alert("Bitte fülle alle Pflichtfelder (Datum, Gästeanzahl, Ort, Equipment und E-Mail-Adresse) aus, damit wir deine Anfrage prüfen können.");
+    // 1. Strenge Prüfung: Inklusive der Datenschutz-Checkbox
+    if (!form.datum || !form.gaeste || !form.ort || !form.email || !form.equipment || !form.datenschutz) {
+      alert("Bitte fülle alle Pflichtfelder aus und akzeptiere die Datenschutzbestimmungen, damit wir deine Anfrage prüfen können.");
       return;
     }
     
@@ -381,6 +382,7 @@ function Modal({ onClose }) {
           Email: form.email,
           Equipment: form.equipment,
           Details: form.details,
+          Datenschutz: form.datenschutz ? "Akzeptiert" : "Fehlt", // NEU: Sendet die Zustimmung mit
           Service: "EventRuhr Anfrage"
         }),
       });
@@ -395,6 +397,7 @@ function Modal({ onClose }) {
       alert("Es gab ein Problem. Bitte versuche es später noch einmal.");
     }
   };
+
   return (
     <div className="modal-overlay" onClick={(e) => e.target === e.currentTarget && onClose()}>
       <div className="modal-box">
@@ -503,39 +506,30 @@ function Modal({ onClose }) {
 
             </div>
 
-            <button className="cta-btn" onClick={handleSubmit} disabled={loading}
-              style={{ width: "100%", marginTop: 28, opacity: loading ? 0.7 : 1 }}>
-              {loading ? "Wird geprüft …" : "Jetzt Angebot anfordern"}
-            </button>
+            {/* NEU: DATENSCHUTZ CHECKBOX */}
+            <div style={{ display: "flex", gap: "12px", alignItems: "flex-start", marginTop: "16px", marginBottom: "8px" }}>
+              <input
+                type="checkbox"
+                id="datenschutz"
+                checked={form.datenschutz}
+                onChange={(e) => setForm({ ...form, datenschutz: e.target.checked })}
+                style={{ 
+                  marginTop: "3px", 
+                  cursor: "pointer",
+                  width: "18px",
+                  height: "18px",
+                  accentColor: GOLD,
+                  flexShrink: 0
+                }}
+              />
+              <label htmlFor="datenschutz" style={{ fontFamily: "'Outfit', sans-serif", fontSize: "12px", color: "rgba(255,255,255,0.7)", lineHeight: "1.5", cursor: "pointer" }}>
+                Ich stimme zu, dass meine Angaben zur Beantwortung meiner Anfrage erhoben und verarbeitet werden. Weitere Informationen findest du in unserer <a href="/datenschutz" target="_blank" rel="noopener noreferrer" style={{ color: GOLD, textDecoration: "underline" }}>Datenschutzerklärung</a>.
+              </label>
+            </div>
 
-            <p style={{ textAlign: "center", fontSize: 11, color: "rgba(255,255,255,0.25)", marginTop: 14, fontFamily: "'Outfit', sans-serif", letterSpacing: "0.05em" }}>
-              Kostenlos & unverbindlich · Antwort innerhalb von 6h
-            </p>
-          </div>
-        ) : (
-          <div style={{ padding: "0 36px 48px", textAlign: "center", animation: "fadeInUp 0.5s ease both" }}>
-            <div style={{ width: 64, height: 64, borderRadius: "50%", background: "rgba(200,169,110,0.1)", border: `1px solid ${GOLD}`, display: "flex", alignItems: "center", justifyContent: "center", margin: "0 auto 24px" }}>
-              <CheckCircle size={28} color={GOLD} />
-            </div>
-            <h3 className="font-display" style={{ fontSize: 26, fontWeight: 300, color: "#fff", marginBottom: 16, lineHeight: 1.3 }}>
-              Vielen Dank für<br />
-              <span style={{ color: GOLD }}>deine Anfrage!</span>
-            </h3>
-            <p style={{ fontFamily: "'Outfit', sans-serif", fontSize: 14, color: "rgba(255,255,255,0.55)", lineHeight: 1.75, maxWidth: 380, margin: "0 auto 28px" }}>
-              Wir verzeichnen aktuell eine extrem hohe Nachfrage für die kommende Hochzeitssaison. Wir prüfen unsere Kapazitäten für dein Datum und melden uns <strong style={{ color: "rgba(255,255,255,0.8)", fontWeight: 500 }}>innerhalb von 6 Stunden</strong> mit deinem individuellen Angebot.
-            </p>
-            <div style={{ background: "rgba(200,169,110,0.06)", border: "1px solid rgba(200,169,110,0.15)", padding: "14px 20px", marginBottom: 24 }}>
-              <p style={{ fontFamily: "'Outfit', sans-serif", fontSize: 12, color: "rgba(200,169,110,0.8)", letterSpacing: "0.08em", textTransform: "uppercase" }}>
-                🔥 Tipp: Sommer-Termine sind stark nachgefragt
-              </p>
-            </div>
-            <button className="cta-btn-outline" onClick={onClose}>Schließen</button>
-          </div>
-        )}
-      </div>
-    </div>
-  );
-}
+            <button className="cta-btn" onClick={handleSubmit} disabled={loading}
+              style={{ width: "100%", marginTop: 20, opacity: loading ? 0.7 : 1 }}>
+              {loading ? "Wird geprüft …"
 
 /* ── INFO MODAL: 360 VIDEO ── */
 function InfoModal360({ onClose }) {
