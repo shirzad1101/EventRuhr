@@ -1,8 +1,8 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
-import Gallery from "./Gallery";
+import Gallery from "./pages/Gallery"; // Pfad angepasst zu /pages
 import Danke from "./Danke"; 
-import Datenschutz from "./Datenschutz"; // NEU: Datenschutz-Seite importieren
+import Datenschutz from "./pages/Datenschutz"; // NEU: Pfad exakt auf den pages-Ordner angepasst
 
 export default function App() {
   return (
@@ -10,8 +10,8 @@ export default function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/gallery" element={<Gallery />} />
-        <Route path="/danke" element={<Danke />} /> {/* Route für Google / Meta Ads Tracking */}
-        <Route path="/datenschutz" element={<Datenschutz />} /> {/* NEU: Rechtssichere Route für das Buchungs-Modal */}
+        <Route path="/danke" element={<Danke />} />
+        <Route path="/datenschutz" element={<Datenschutz />} />
       </Routes>
     </Router>
   );
