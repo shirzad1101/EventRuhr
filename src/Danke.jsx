@@ -1,8 +1,16 @@
+import React, { useEffect } from "react";
 import { CheckCircle, ArrowLeft } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
 export default function Danke() {
   const navigate = useNavigate();
+
+  // NEU: Meta Pixel Lead-Tracking feuern, sobald die Danke-Seite lädt
+  useEffect(() => {
+    if (window.fbq) {
+      window.fbq('track', 'Lead');
+    }
+  }, []);
 
   return (
     <div style={{ background: "#111110", minHeight: "100vh", color: "#fff", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", padding: "40px 20px", fontFamily: "'Outfit', sans-serif", textAlign: "center" }}>
@@ -15,7 +23,7 @@ export default function Danke() {
       </h1>
       
       <p style={{ color: "rgba(255,255,255,0.6)", fontSize: 16, maxWidth: 450, lineHeight: 1.6, marginBottom: 40, fontWeight: 300 }}>
-        Vielen Dank für dein Vertrauen. Wir prüfen deine Kapazitäten und senden dir dein maßgeschneidertes Angebot <strong>innerhalb von 6 Stunden</strong> per E-Mail.
+        Vielen Dank für dein Vertrauen. Wir prüfen unsere Kapazitäten und senden dir dein maßgeschneidertes Angebot <strong>innerhalb von 6 Stunden</strong> per E-Mail.
       </p>
 
       <button 
