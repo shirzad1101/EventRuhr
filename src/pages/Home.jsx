@@ -502,7 +502,25 @@ function Modal({ onClose }) {
               </div>
 
             </div>
-
+<div style={{ display: "flex", gap: "12px", alignItems: "flex-start", marginTop: "16px", marginBottom: "24px" }}>
+  <input
+    type="checkbox"
+    id="datenschutz"
+    name="Datenschutz_akzeptiert"
+    value="Ja"
+    required
+    style={{ 
+      marginTop: "3px", 
+      cursor: "pointer",
+      width: "18px",
+      height: "18px",
+      accentColor: "#C8A96E" /* Passt sich deinem goldenen EventRuhr-Design an */
+    }}
+  />
+  <label htmlFor="datenschutz" style={{ fontFamily: "'Outfit', sans-serif", fontSize: "12px", color: "rgba(255,255,255,0.7)", lineHeight: "1.5", cursor: "pointer" }}>
+    Ich stimme zu, dass meine Angaben zur Beantwortung meiner Anfrage erhoben und verarbeitet werden. Weitere Informationen findest du in unserer <a href="/datenschutz" target="_blank" rel="noopener noreferrer" style={{ color: "#C8A96E", textDecoration: "underline" }}>Datenschutzerklärung</a>.
+  </label>
+</div>
             <button className="cta-btn" onClick={handleSubmit} disabled={loading}
               style={{ width: "100%", marginTop: 28, opacity: loading ? 0.7 : 1 }}>
               {loading ? "Wird geprüft …" : "Jetzt Angebot anfordern"}
