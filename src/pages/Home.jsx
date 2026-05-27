@@ -357,10 +357,12 @@ function Modal({ onClose }) {
   const [form, setForm] = useState({ datum: "", gaeste: "", ort: "", email: "", equipment: "", details: "" });
   const [loading, setLoading] = useState(false);
 
-  const handleSubmit = async () => {
-    // 1. Strenge Prüfung: Alle Felder außer 'details' müssen ausgefüllt sein
-    if (!form.datum || !form.gaeste || !form.ort || !form.email || !form.equipment) {
-      alert("Bitte fülle alle Pflichtfelder (Datum, Gästeanzahl, Ort, Equipment und E-Mail-Adresse) aus, damit wir deine Anfrage prüfen können.");
+const handleSubmit = async () => {
+    // 1. Strenge Prüfung: Alle Felder (inklusive Datenschutz-Checkbox) abfragen
+    const datenschutzAbgehakt = document.getElementById("datenschutz")?.checked;
+
+    if (!form.datum || !form.gaeste || !form.ort || !form.email || !form.equipment || !datenschutzAbgehakt) {
+      alert("Bitte fülle alle Pflichtfelder aus und akzeptiere die Datenschutzbestimmungen, damit wir deine Anfrage prüfen können.");
       return;
     }
     
