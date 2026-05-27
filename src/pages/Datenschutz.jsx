@@ -13,7 +13,29 @@ function Datenschutz() {
   return (
     <div style={{ backgroundColor: "#0A0A0A", color: "rgba(255,255,255,0.7)", minHeight: "100vh", fontFamily: "'Outfit', sans-serif", padding: "60px 20px", lineHeight: "1.6" }}>
       <div style={{ maxWidth: "800px", margin: "0 auto" }}>
-        
+        <button 
+  onClick={() => {
+    // Wenn es einen Eintrag im Browser-Verlauf gibt, geh zurück, sonst zur Startseite
+    if (window.history.length > 1) {
+      navigate(-1);
+    } else {
+      navigate("/");
+    }
+  }} 
+  style={{ 
+    background: "none", 
+    border: `1px solid ${GOLD}`, 
+    color: GOLD, 
+    padding: "8px 16px", 
+    borderRadius: "4px", 
+    cursor: "pointer", 
+    marginBottom: "40px", 
+    fontFamily: "'Outfit', sans-serif", 
+    fontSize: "14px" 
+  }}
+>
+  &larr; Zurück
+</button>
         <button 
           onClick={() => navigate(-1)} 
           style={{ background: "none", border: `1px solid ${GOLD}`, color: GOLD, padding: "8px 16px", borderRadius: "4px", cursor: "pointer", marginBottom: "40px", fontFamily: "'Outfit', sans-serif", fontSize: "14px" }}
