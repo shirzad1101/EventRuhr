@@ -36,13 +36,7 @@ function Datenschutz() {
 >
   &larr; Zurück
 </button>
-        <button 
-          onClick={() => navigate(-1)} 
-          style={{ background: "none", border: `1px solid ${GOLD}`, color: GOLD, padding: "8px 16px", borderRadius: "4px", cursor: "pointer", marginBottom: "40px", fontFamily: "'Outfit', sans-serif", fontSize: "14px" }}
-        >
-          &larr; Zurück
-        </button>
-
+        
         <h1 className="font-display" style={{ fontSize: "36px", fontWeight: 300, color: "#fff", marginBottom: "16px", lineHeight: 1.2 }}>
           Datenschutz<span style={{ color: GOLD }}>erklärung</span>
         </h1>
