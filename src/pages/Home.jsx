@@ -1157,7 +1157,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── FOOTER ── */}
+ {/* ── FOOTER ── */}
       <footer style={{ padding: "40px", display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 16 }}>
         <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
           <div style={{ width: 24, height: 24, border: `1px solid ${GOLD}60`, display: "flex", alignItems: "center", justifyContent: "center" }}>
@@ -1174,7 +1174,24 @@ export default function Home() {
           </span>
         </div>
         <p style={{ fontSize: 11, color: "rgba(255,255,255,0.15)", fontFamily: "'Outfit', sans-serif", letterSpacing: "0.06em" }}>
-          © 2026 EventRuhr · Impressum · Datenschutz
+          © 2026 EventRuhr ·{" "}
+          <Link 
+            to="/impressum" 
+            style={{ color: "rgba(255,255,255,0.3)", textDecoration: "none", transition: "color 0.2s" }} 
+            onMouseOver={e => e.target.style.color = GOLD} 
+            onMouseOut={e => e.target.style.color = "rgba(255,255,255,0.3)"}
+          >
+            Impressum
+          </Link>
+          {" "}·{" "}
+          <Link 
+            to="/datenschutz" 
+            style={{ color: "rgba(255,255,255,0.3)", textDecoration: "none", transition: "color 0.2s" }} 
+            onMouseOver={e => e.target.style.color = GOLD} 
+            onMouseOut={e => e.target.style.color = "rgba(255,255,255,0.3)"}
+          >
+            Datenschutz
+          </Link>
         </p>
       </footer>
 
