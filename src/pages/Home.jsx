@@ -98,6 +98,21 @@ const styles = `
     transform: translateY(-1px);
     box-shadow: 0 8px 28px rgba(200,169,110,0.25);
   }
+  /* ── NEUE BUTTON ANIMATION ── */
+  @keyframes attentionPulse {
+    0%, 100% { 
+      transform: scale(1); 
+      box-shadow: 0 0 0 0 rgba(200,169,110, 0); 
+    }
+    50% { 
+      transform: scale(1.04); 
+      box-shadow: 0 0 20px rgba(200,169,110, 0.4); 
+      background: rgba(200,169,110, 0.08); 
+    }
+  }
+  .btn-attention {
+    animation: attentionPulse 2.5s infinite ease-in-out;
+  }
 
   /* ── DROPDOWN NAV ── */
   .nav-dropdown-btn {
@@ -892,9 +907,19 @@ export default function Home() {
               Jetzt Angebot anfordern
             </button>
             
-            {/* NEUER GALERIE BUTTON */}
-            <button className="cta-btn-outline" onClick={() => navigate("/gallery")}>
-              Zur Galerie
+          {/* ── Hero CTA ── */}
+          <div style={{ display: "flex", gap: 16, flexWrap: "wrap", animation: "fadeInUp 0.7s ease 0.4s both", marginBottom: 60 }}>
+            <button className="cta-btn" onClick={openBooking}>
+              Jetzt Angebot anfordern
+            </button>
+            
+            {/* NEUER ANIMIERTER GALERIE BUTTON */}
+            <button 
+              className="cta-btn-outline btn-attention" 
+              onClick={() => navigate("/gallery")}
+              style={{ display: "flex", alignItems: "center", gap: 8 }}
+            >
+              <Sparkles size={14} color={GOLD} /> Zur Galerie
             </button>
           </div>
 
