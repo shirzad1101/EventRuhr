@@ -23,7 +23,7 @@ export default function Impressum() {
         </h1>
 
         {/* Inhalt */}
-        <div style={{ display: "flex", flexDirection: "column", gap: 32, rgba: "rgba(255,255,255,0.7)", lineHeight: "1.8", fontWeight: 300, fontSize: "15px" }}>
+        <div style={{ display: "flex", flexDirection: "column", gap: 32, color: "rgba(255,255,255,0.7)", lineHeight: "1.8", fontWeight: 300, fontSize: "15px" }}>
           
           <div>
             <h2 style={{ fontSize: "12px", textTransform: "uppercase", letterSpacing: "0.1em", color: GOLD, marginBottom: 8, fontFamily: "'Outfit', sans-serif" }}>
@@ -33,6 +33,11 @@ export default function Impressum() {
               Sherzad Qadri<br />
               EventRuhr
             </p>
+            <p style={{ marginTop: 12 }}>
+              Hanielstr. 35<br />
+              45327 Essen<br />
+              Deutschland
+            </p>
           </div>
 
           <div>
@@ -40,23 +45,35 @@ export default function Impressum() {
               Kontakt
             </h2>
             <p>
-              Hanielstr. 35<br />
-              45327 Essen<br />
-              Deutschland
-            </p>
-            <p style={{ marginTop: 12 }}>
+              Telefon: [DEINE TELEFONNUMMER]<br />
               E-Mail: <a href="mailto:shirzad.qadri123@gmail.com" style={{ color: GOLD, textDecoration: "none" }}>shirzad.qadri123@gmail.com</a>
             </p>
           </div>
 
           <div>
             <h2 style={{ fontSize: "12px", textTransform: "uppercase", letterSpacing: "0.1em", color: GOLD, marginBottom: 8 }}>
-              Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV
+              Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV
             </h2>
             <p>
               Sherzad Qadri<br />
               Hanielstr. 35<br />
               45327 Essen
+            </p>
+          </div>
+
+          <hr style={{ border: "none", borderTop: "1px solid rgba(255,255,255,0.05)", margin: "20px 0" }} />
+
+          <div>
+            <h2 style={{ fontSize: "12px", textTransform: "uppercase", letterSpacing: "0.1em", color: GOLD, marginBottom: 8 }}>
+              EU-Streitschlichtung
+            </h2>
+            <p style={{ color: "rgba(255,255,255,0.5)", fontSize: "14px" }}>
+              Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit: <a href="https://ec.europa.eu/consumers/odr/" target="_blank" rel="noopener noreferrer" style={{ color: GOLD, textDecoration: "none" }}>https://ec.europa.eu/consumers/odr/</a>.<br />
+              Unsere E-Mail-Adresse finden Sie oben im Impressum.
+            </p>
+            <h3 style={{ fontSize: "14px", color: "#fff", marginTop: 16, marginBottom: 4 }}>Verbraucher­streit­beilegung/Universal­schlichtungs­stelle</h3>
+            <p style={{ color: "rgba(255,255,255,0.5)", fontSize: "14px" }}>
+              Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.
             </p>
           </div>
 
