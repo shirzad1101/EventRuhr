@@ -102,35 +102,35 @@ export default function Gallery() {
         </p>
 
         {/* ── OBERE REIHE (Querformat) ── */}
-        <div className="gallery-grid-landscape">
-          {landscapeVideos.map((src, index) => (
-            <div key={`land-${index}`} className="video-wrapper aspect-landscape">
-              <video 
-                src={src} 
-                controls 
-                muted 
-                loop 
-                playsInline 
-                poster="/placeholder-bg.jpg" /* Optional: Ein Vorschaubild, solange das Video lädt */
-              />
-            </div>
-          ))}
-        </div>
+     <div className="gallery-grid-landscape">
+  {landscapeVideos.map((src, index) => (
+    <div key={`land-${index}`} className="video-wrapper aspect-landscape">
+      <video 
+        src={src} 
+        autoPlay    {/* Sorgt für den automatischen Start */}
+        muted       {/* Zwingend erforderlich für autoPlay */}
+        loop        {/* Startet das Video von vorne, wenn es zu Ende ist */}
+        playsInline {/* Wichtig, damit es auf iPhones nicht automatisch im Vollbild aufpoppt */}
+        /* controls kannst du weglassen, wenn der Nutzer nicht auf Pause drücken soll */
+      />
+    </div>
+  ))}
+</div>
 
         {/* ── UNTERE REIHE (Hochformat) ── */}
-        <div className="gallery-grid-portrait">
-          {portraitVideos.map((src, index) => (
-            <div key={`port-${index}`} className="video-wrapper aspect-portrait">
-              <video 
-                src={src} 
-                controls 
-                muted 
-                loop 
-                playsInline 
-              />
-            </div>
-          ))}
-        </div>
+<div className="gallery-grid-portrait">
+  {portraitVideos.map((src, index) => (
+    <div key={`port-${index}`} className="video-wrapper aspect-portrait">
+      <video 
+        src={src} 
+        autoPlay    {/* Sorgt für den automatischen Start */}
+        muted       {/* Zwingend erforderlich für autoPlay */}
+        loop        {/* Endlosschleife */}
+        playsInline {/* Verhindert ungewollten Vollbild-Modus auf Handys */}
+      />
+    </div>
+  ))}
+</div>
 
         {/* ── TEXT UNTER DER GALERIE (Aus dem Screenshot) ── */}
         <div style={{ textAlign: "center", marginTop: 80, paddingBottom: 40 }}>
