@@ -853,8 +853,8 @@ export default function Home() {
         </div>
 
         <div style={{ display: "flex", alignItems: "center", gap: 14 }}>
-          {/* Dropdown Menu */}
-          <div style={{ position: "relative" }} ref={navRef} className="hide-mobile">
+         {/* Dropdown Menu */}
+          <div style={{ position: "relative" }} ref={navRef}>
             <button
               className="nav-dropdown-btn"
               onClick={() => setNavOpen(v => !v)}
@@ -866,7 +866,7 @@ export default function Home() {
             </button>
 
             {navOpen && (
-              <div className="nav-dropdown-menu">
+              <div className="nav-dropdown-menu" style={{ right: window.innerWidth < 768 ? "-60px" : "0" }}>
                 <button className="nav-dropdown-item" onClick={() => setNavOpen(false)}>Home</button>
                 {/* HIER IST DIE VERKNÜPFUNG ZUR GALERIE */}
                 <button className="nav-dropdown-item" onClick={() => { setNavOpen(false); navigate("/gallery"); }}>Galerie</button>
