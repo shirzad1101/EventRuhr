@@ -79,7 +79,7 @@ export default function Gallery() {
   }, []);
 
   // Hier trägst du später die Namen deiner Videodateien ein (liegen im "public" Ordner)
-  const landscapeVideos = ["/landscape1.mp4", "/landscape2.mp4", "/landscape3.mp4"];
+  const landscapeVideos = ["/video3", "/landscape2.mp4", "/landscape3.mp4"];
   const portraitVideos = ["/portrait1.mp4", "/portrait2.mp4", "/portrait3.mp4", "/portrait4.mp4"];
 
   return (
