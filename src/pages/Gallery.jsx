@@ -79,8 +79,8 @@ export default function Gallery() {
   }, []);
 
   // Hier trägst du später die Namen deiner Videodateien ein (liegen im "public" Ordner)
-  const landscapeVideos = ["/video3", "/landscape2.mp4", "/landscape3.mp4"];
-  const portraitVideos = ["/portrait1.mp4", "/portrait2.mp4", "/portrait3.mp4", "/portrait4.mp4"];
+  const landscapeVideos = ["/video3.mp4", "/video4.mp4", "/video5.mp4"];
+  const portraitVideos = ["/video1.mp4", "/video2.mp4", "/video6.mp4", "/portrait4.mp4"];
 
   return (
     <div style={{ background: "#111110", minHeight: "100vh", color: "#fff", padding: "60px 40px", fontFamily: "'Outfit', sans-serif" }}>
