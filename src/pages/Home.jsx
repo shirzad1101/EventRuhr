@@ -114,6 +114,21 @@ const styles = `
     animation: heartBeat 2s infinite ease-in-out;
   }
 
+  /* ── SANFTES LEUCHTEN FÜR DEN HAUPT-BUTTON ── */
+  @keyframes gentleGlow {
+    0%, 100% {
+      box-shadow: 0 4px 15px rgba(200,169,110, 0.15);
+    }
+    50% {
+      box-shadow: 0 4px 30px rgba(200,169,110, 0.45);
+    }
+  }
+
+  .btn-glow {
+    /* Pulsiert ganz ruhig alle 4 Sekunden nur im Leuchteffekt */
+    animation: gentleGlow 4s infinite ease-in-out;
+  }
+
   /* ── DROPDOWN NAV ── */
   .nav-dropdown-btn {
     display: flex;
@@ -898,9 +913,10 @@ export default function Home() {
             Premium 360° Video Booth & Frozen Cocktail Bar für Hochzeiten und Groß-Events im Ruhrgebiet & Raum Düsseldorf.
           </p>
 
-    {/* ── Hero CTA ── */}
+{/* ── Hero CTA ── */}
           <div style={{ display: "flex", gap: 16, flexWrap: "wrap", animation: "fadeInUp 0.7s ease 0.4s both", marginBottom: 60 }}>
-            <button className="cta-btn" onClick={openBooking}>
+            {/* HAUPT-BUTTON JETZT MIT SANFTEM LEUCHTEN */}
+            <button className="cta-btn btn-glow" onClick={openBooking}>
               Jetzt Angebot anfordern
             </button>
             
