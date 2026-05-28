@@ -1070,15 +1070,15 @@ export default function Home() {
                 </div>
               ))}
             </div>
-            <button
-              onClick={openInfoSlush}
-              style={{ background: "none", border: "none", cursor: "pointer", display: "flex", alignItems: "center", gap: 6, padding: 0 }}
-            >
-              <Info size={13} color={GOLD} />
-              <span style={{ fontFamily: "'Outfit', sans-serif", fontSize: 12, color: GOLD, letterSpacing: "0.08em", textTransform: "uppercase", borderBottom: `1px solid ${GOLD}40`, paddingBottom: 1 }}>
-                Erfahre mehr
-              </span>
-            </button>
+           <button
+                    onClick={openInfo360}
+                    style={{ background: "none", border: "none", cursor: "pointer", display: "flex", alignItems: "center", gap: 6, padding: 0 }}
+                  >
+                    <Info size={13} color={GOLD} />
+                    <span style={{ fontFamily: "'Outfit', sans-serif", fontSize: 12, color: GOLD, letterSpacing: "0.08em", textTransform: "uppercase", borderBottom: `1px solid ${GOLD}40`, paddingBottom: 1 }}>
+                      Erfahre mehr
+                    </span>
+                  </button>
           </div>
 
           {/* Promise Card */}
