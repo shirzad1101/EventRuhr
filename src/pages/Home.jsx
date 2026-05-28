@@ -361,7 +361,7 @@ const handleSubmit = async () => {
     // 1. Strenge Prüfung: Alle Felder (inklusive Datenschutz-Checkbox) abfragen
     const datenschutzAbgehakt = document.getElementById("datenschutz")?.checked;
 
-    if (!form.datum || !form. || !form.ort || !form.email || !form.equipment || !datenschutzAbgehakt) {
+   if (!form.datum || !form.gaeste || !form.ort || !form.email || !form.equipment || !datenschutzAbgehakt) {
       alert("Bitte fülle alle Pflichtfelder aus und akzeptiere die Datenschutzbestimmungen, damit wir deine Anfrage prüfen können.");
       return;
     }
