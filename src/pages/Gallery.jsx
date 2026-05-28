@@ -102,16 +102,15 @@ export default function Gallery() {
         </p>
 
         {/* ── OBERE REIHE (Querformat) ── */}
-     <div className="gallery-grid-landscape">
+<div className="gallery-grid-landscape">
   {landscapeVideos.map((src, index) => (
     <div key={`land-${index}`} className="video-wrapper aspect-landscape">
       <video 
         src={src} 
-        autoPlay    {/* Sorgt für den automatischen Start */}
-        muted       {/* Zwingend erforderlich für autoPlay */}
-        loop        {/* Startet das Video von vorne, wenn es zu Ende ist */}
-        playsInline {/* Wichtig, damit es auf iPhones nicht automatisch im Vollbild aufpoppt */}
-        /* controls kannst du weglassen, wenn der Nutzer nicht auf Pause drücken soll */
+        autoPlay
+        muted
+        loop
+        playsInline
       />
     </div>
   ))}
@@ -123,10 +122,10 @@ export default function Gallery() {
     <div key={`port-${index}`} className="video-wrapper aspect-portrait">
       <video 
         src={src} 
-        autoPlay    {/* Sorgt für den automatischen Start */}
-        muted       {/* Zwingend erforderlich für autoPlay */}
-        loop        {/* Endlosschleife */}
-        playsInline {/* Verhindert ungewollten Vollbild-Modus auf Handys */}
+        autoPlay
+        muted
+        loop
+        playsInline
       />
     </div>
   ))}
