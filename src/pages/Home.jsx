@@ -354,7 +354,7 @@ function StarRating() {
 function Modal({ onClose }) {
   const navigate = useNavigate(); // NEU: Ermöglicht die Weiterleitung zur Danke-Seite
   const [submitted, setSubmitted] = useState(false);
-  const [form, setForm] = useState({ datum: "", : "", ort: "", email: "", equipment: "", details: "" });
+  const [form, setForm] = useState({ datum: "", gaeste: "", ort: "", email: "", equipment: "", details: "" });
   const [loading, setLoading] = useState(false);
 
 const handleSubmit = async () => {
