@@ -99,20 +99,19 @@ const styles = `
     box-shadow: 0 8px 28px rgba(200,169,110,0.25);
   }
 
-  /* ── NEUE BUTTON ANIMATION ── */
-  @keyframes attentionPulse {
-    0%, 100% { 
-      transform: scale(1); 
-      box-shadow: 0 0 0 0 rgba(200,169,110, 0); 
-    }
-    50% { 
-      transform: scale(1.04); 
-      box-shadow: 0 0 20px rgba(200,169,110, 0.4); 
-      background: rgba(200,169,110, 0.08); 
-    }
+/* ── DER HERZSCHLAG-EFFEKT ── */
+  @keyframes heartBeat {
+    0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(200,169,110, 0); }
+    14% { transform: scale(1.06); box-shadow: 0 0 15px rgba(200,169,110, 0.3); background: rgba(200,169,110, 0.08); } /* 1. Schlag */
+    28% { transform: scale(1); box-shadow: 0 0 0 0 rgba(200,169,110, 0); }
+    42% { transform: scale(1.08); box-shadow: 0 0 25px rgba(200,169,110, 0.4); background: rgba(200,169,110, 0.12); } /* 2. Schlag (etwas stärker) */
+    70% { transform: scale(1); box-shadow: 0 0 0 0 rgba(200,169,110, 0); } /* Zurück zur Ruhephase */
+    100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(200,169,110, 0); } /* Lange Pause am Ende */
   }
+
   .btn-attention {
-    animation: attentionPulse 2.5s infinite ease-in-out;
+    /* Ein Durchgang dauert jetzt 2 Sekunden (Doppelschlag am Anfang, dann Pause) */
+    animation: heartBeat 2s infinite ease-in-out;
   }
 
   /* ── DROPDOWN NAV ── */
