@@ -354,14 +354,14 @@ function StarRating() {
 function Modal({ onClose }) {
   const navigate = useNavigate(); // NEU: Ermöglicht die Weiterleitung zur Danke-Seite
   const [submitted, setSubmitted] = useState(false);
-  const [form, setForm] = useState({ datum: "", gaeste: "", ort: "", email: "", equipment: "", details: "" });
+  const [form, setForm] = useState({ datum: "", : "", ort: "", email: "", equipment: "", details: "" });
   const [loading, setLoading] = useState(false);
 
 const handleSubmit = async () => {
     // 1. Strenge Prüfung: Alle Felder (inklusive Datenschutz-Checkbox) abfragen
     const datenschutzAbgehakt = document.getElementById("datenschutz")?.checked;
 
-    if (!form.datum || !form.gaeste || !form.ort || !form.email || !form.equipment || !datenschutzAbgehakt) {
+    if (!form.datum || !form. || !form.ort || !form.email || !form.equipment || !datenschutzAbgehakt) {
       alert("Bitte fülle alle Pflichtfelder aus und akzeptiere die Datenschutzbestimmungen, damit wir deine Anfrage prüfen können.");
       return;
     }
@@ -376,15 +376,15 @@ const handleSubmit = async () => {
           "Content-Type": "application/json",
           Accept: "application/json",
         },
-        body: JSON.stringify({
-          Datum: form.datum,
-          Gaesteanzahl: form.gaeste,
-          Ort: form.ort,
-          Email: form.email,
-          Equipment: form.equipment,
-          Details: form.details,
-          Service: "EventRuhr Anfrage"
-        }),
+body: JSON.stringify({
+      email: form.email, // Zwingend kleingeschrieben für den Formspree Autoresponder!
+      Datum: form.datum,
+      Gaesteanzahl: form.gaeste,
+      Ort: form.ort,
+      Equipment: form.equipment,
+      Details: form.details || "Keine zusätzlichen Details",
+      Service: "EventRuhr Anfrage"
+    }),
       });
       
       // 3. Erfolgsmeldung verarbeiten & WEITERLEITEN ZUR DANKE-SEITE
