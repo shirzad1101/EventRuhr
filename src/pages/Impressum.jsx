@@ -45,7 +45,7 @@ export default function Impressum() {
               Kontakt
             </h2>
             <p>
-              Telefon: [DEINE TELEFONNUMMER]<br />
+              Telefon: [+49 15254151290]<br />
               E-Mail: <a href="mailto:shirzad.qadri123@gmail.com" style={{ color: GOLD, textDecoration: "none" }}>shirzad.qadri123@gmail.com</a>
             </p>
           </div>
