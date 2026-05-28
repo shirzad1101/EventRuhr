@@ -886,10 +886,15 @@ export default function Home() {
             Premium 360° Video Booth & Frozen Cocktail Bar für Hochzeiten und Groß-Events im Ruhrgebiet & Raum Düsseldorf.
           </p>
 
-          {/* ── Hero CTA: nur ein Button (kein "Mehr erfahren") ── */}
+    {/* ── Hero CTA ── */}
           <div style={{ display: "flex", gap: 16, flexWrap: "wrap", animation: "fadeInUp 0.7s ease 0.4s both", marginBottom: 60 }}>
             <button className="cta-btn" onClick={openBooking}>
               Jetzt Angebot anfordern
+            </button>
+            
+            {/* NEUER GALERIE BUTTON */}
+            <button className="cta-btn-outline" onClick={() => navigate("/gallery")}>
+              Zur Galerie
             </button>
           </div>
 
