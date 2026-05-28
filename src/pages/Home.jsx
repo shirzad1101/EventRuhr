@@ -878,8 +878,8 @@ export default function Home() {
             )}
           </div>
 
-          {/* CTA */}
-          <button className="cta-btn" style={{ padding: "12px 28px", fontSize: 11 }} onClick={openBooking}>
+        {/* CTA - Auf dem Handy ausgeblendet ("hide-mobile") */}
+          <button className="cta-btn hide-mobile" style={{ padding: "12px 28px", fontSize: 11 }} onClick={openBooking}>
             Anfragen
           </button>
         </div>
