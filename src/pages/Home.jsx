@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { Camera, Wine, CheckCircle, Star, MapPin, Users, Calendar, Mail, X, ChevronDown, Sparkles, Clock, Shield, Menu, Info } from "lucide-react";
 
 const GOLD = "#C8A96E";
