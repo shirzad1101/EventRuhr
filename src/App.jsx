@@ -13,6 +13,7 @@ export default function App() {
         <Route path="/gallery" element={<Gallery />} />
         <Route path="/danke" element={<Danke />} />
         <Route path="/datenschutz" element={<Datenschutz />} />
+        <Route path="/impressum" element={<Impressum />} />
       </Routes>
     </Router>
   );
