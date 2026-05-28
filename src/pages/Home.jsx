@@ -846,7 +846,7 @@ export default function Home() {
                 <button className="nav-dropdown-item" onClick={openInfo360}>360 Video Plattform</button>
                 <button className="nav-dropdown-item" onClick={openInfoSlush}>Slush Eis Maschine</button>
                 <button className="nav-dropdown-item" onClick={openBooking}>Kontakt</button>
-                <button className="nav-dropdown-item" onClick={() => setNavOpen(false)} style={{ color: "rgba(255,255,255,0.3)", fontSize: 11 }}>Impressum</button>
+                <button className="nav-dropdown-item" onClick={() => { setNavOpen(false); navigate("/impressum"); }} style={{ color: "rgba(255,255,255,0.3)", fontSize: 11 }}>Impressum</button>
               </div>
             )}
           </div>
