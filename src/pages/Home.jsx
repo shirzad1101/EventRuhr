@@ -98,6 +98,7 @@ const styles = `
     transform: translateY(-1px);
     box-shadow: 0 8px 28px rgba(200,169,110,0.25);
   }
+
   /* ── NEUE BUTTON ANIMATION ── */
   @keyframes attentionPulse {
     0%, 100% { 
@@ -176,14 +177,14 @@ const styles = `
     position: relative;
     overflow: hidden;
   }
-.service-card::before {
+  .service-card::before {
     content: '';
     position: absolute;
     inset: 0;
     background: linear-gradient(135deg, rgba(200,169,110,0.04) 0%, transparent 60%);
     opacity: 0;
     transition: opacity 0.4s ease;
-    pointer-events: none; /* <--- DAS HIER FEHLTE! */
+    pointer-events: none;
   }
   .service-card:hover {
     border-color: rgba(200,169,110,0.35);
@@ -368,13 +369,12 @@ function StarRating() {
 
 /* ── BOOKING MODAL ── */
 function Modal({ onClose }) {
-  const navigate = useNavigate(); // NEU: Ermöglicht die Weiterleitung zur Danke-Seite
+  const navigate = useNavigate();
   const [submitted, setSubmitted] = useState(false);
   const [form, setForm] = useState({ datum: "", gaeste: "", ort: "", email: "", equipment: "", details: "" });
   const [loading, setLoading] = useState(false);
 
 const handleSubmit = async () => {
-    // 1. Strenge Prüfung: Alle Felder (inklusive Datenschutz-Checkbox) abfragen
     const datenschutzAbgehakt = document.getElementById("datenschutz")?.checked;
 
    if (!form.datum || !form.gaeste || !form.ort || !form.email || !form.equipment || !datenschutzAbgehakt) {
@@ -385,28 +385,26 @@ const handleSubmit = async () => {
     setLoading(true);
     
     try {
-      // 2. Daten an Formspree senden
       await fetch("https://formspree.io/f/mvzywpeo", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
           Accept: "application/json",
         },
-body: JSON.stringify({
-      email: form.email, // Zwingend kleingeschrieben für den Formspree Autoresponder!
-      Datum: form.datum,
-      Gaesteanzahl: form.gaeste,
-      Ort: form.ort,
-      Equipment: form.equipment,
-      Details: form.details || "Keine zusätzlichen Details",
-      Service: "EventRuhr Anfrage"
-    }),
+        body: JSON.stringify({
+          email: form.email,
+          Datum: form.datum,
+          Gaesteanzahl: form.gaeste,
+          Ort: form.ort,
+          Equipment: form.equipment,
+          Details: form.details || "Keine zusätzlichen Details",
+          Service: "EventRuhr Anfrage"
+        }),
       });
       
-      // 3. Erfolgsmeldung verarbeiten & WEITERLEITEN ZUR DANKE-SEITE
       setLoading(false);
-      onClose();          // Schließt das Pop-up-Fenster automatisch
-      navigate("/danke"); // Leitet den Kunden direkt weiter zu eventruhr-deluxe.de/danke
+      onClose();
+      navigate("/danke");
       
     } catch (error) {
       setLoading(false);
@@ -532,7 +530,7 @@ body: JSON.stringify({
       cursor: "pointer",
       width: "18px",
       height: "18px",
-      accentColor: "#C8A96E" /* Passt sich deinem goldenen EventRuhr-Design an */
+      accentColor: "#C8A96E"
     }}
   />
   <label htmlFor="datenschutz" style={{ fontFamily: "'Outfit', sans-serif", fontSize: "12px", color: "rgba(255,255,255,0.7)", lineHeight: "1.5", cursor: "pointer" }}>
@@ -599,7 +597,7 @@ function InfoModal360({ onClose }) {
           {/* ── NEUE LOKALE VIDEO EINBETTUNG (STATT IFRAME) ── */}
           <div style={{ 
             position: "relative", 
-            paddingBottom: "56.25%", /* 16:9 Querformat. Wenn dein Demovideo hochkant ist, ändere das zu "177.78%" */
+            paddingBottom: "56.25%", 
             height: 0, 
             overflow: "hidden", 
             borderRadius: "4px",
@@ -902,12 +900,6 @@ export default function Home() {
           </p>
 
     {/* ── Hero CTA ── */}
-          <div style={{ display: "flex", gap: 16, flexWrap: "wrap", animation: "fadeInUp 0.7s ease 0.4s both", marginBottom: 60 }}>
-            <button className="cta-btn" onClick={openBooking}>
-              Jetzt Angebot anfordern
-            </button>
-            
-          {/* ── Hero CTA ── */}
           <div style={{ display: "flex", gap: 16, flexWrap: "wrap", animation: "fadeInUp 0.7s ease 0.4s both", marginBottom: 60 }}>
             <button className="cta-btn" onClick={openBooking}>
               Jetzt Angebot anfordern
